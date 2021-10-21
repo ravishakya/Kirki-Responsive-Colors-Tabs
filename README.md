@@ -43,3 +43,37 @@ add_action( 'init' , function(){
   
 });
 ````
+## How to get colors in the frontend ? ##
+````php
+$body_background = get_theme_mod( 'body_background' );
+$body_background = json_decode( $body_background, true );
+echo esc_attr( $body_background['colors']['normal_desktop'] );
+````
+**Parameters**  
+
+**colors**       - `(array)` `(required)` If you don't want any colors by default just pass an empty string. eg. `'normal_desktop' => ''` `'normal_tablet'  => ''`
+````php
+'colors' => array(
+	'normal_desktop' => '#8224e3',
+	'normal_tablet'  => '#1e73be',
+	'normal_mobile'  => '#81d742',
+	'hover_desktop'  => '#eeee22',
+	'hover_tablet'   => '#dd9933',
+	'hover_mobile'   => '#dd3333'
+),
+````
+**devices**       - `(array)` `(required)` You can choose all three devices or just one.
+````php
+'devices' => array(
+	'desktop',
+	'tablet',
+	'mobile'
+)
+````
+## Note ##
+You will need to install the kirki plugin first https://wordpress.org/plugins/kirki/
+
+## Changelog ##
+
+= 0.1 =
+- Initial Release
