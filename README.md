@@ -14,7 +14,7 @@ By using this control, you can select different colors for different devices ( L
 
 ## Example Code ##
 
-````
+````php
 add_action( 'init' , function(){
 	
 	Kirki::add_field( 'bizberg', array(
