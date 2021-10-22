@@ -49,7 +49,9 @@ $body_background = get_theme_mod( 'body_background' );
 $body_background = json_decode( $body_background, true );
 echo esc_attr( $body_background['colors']['normal_desktop'] );
 ````
-**Parameters**  
+**Parameters**
+
+Note: `Defalult value` is required for this to work. 
 
 **colors**       - `(array)` `(required)` If you don't want any colors by default just pass an empty string. eg. `'normal_desktop' => ''` `'normal_tablet'  => ''`
 ````php
