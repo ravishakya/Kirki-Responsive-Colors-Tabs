@@ -75,5 +75,10 @@ You will need to install the kirki plugin first https://wordpress.org/plugins/ki
 
 ## Changelog ##
 
+= 0.2 =
+- Fixed CSS
+- Added description field
+- When clicked on customizer devices icon, change the content on modal as well ( if the modal is opened )
+
 = 0.1 =
 - Initial Release
