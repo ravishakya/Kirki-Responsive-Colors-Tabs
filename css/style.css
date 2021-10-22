@@ -1,0 +1,223 @@
+.customize-control-color-normal-hover{
+	position: relative;
+    margin-bottom: 12px;
+    margin-top: 0;
+    line-height: 27px;
+}
+
+.customize-control-color-normal-hover .customize-control-title {
+    margin-bottom: 0;
+}
+
+.kcnh-adv-toggle-icon {
+    right: 2px;
+    top: -2px;
+    /*position: absolute;*/
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 4px;
+    color: #0073aa;
+    background: #fff;
+}
+
+.open.kcnh-adv-toggle-icon:before {
+    content: "\f158";
+}
+
+.kcnh-adv-toggle-icon:before {
+    content: "\f464";
+}
+
+.kcnh-field-settings-wrap {
+    -webkit-box-shadow: 0 2px 15px rgb(0 0 0 / 30%);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 30%);
+    -webkit-border-radius: 3px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.kcnh-field-settings-modal {
+    position: absolute;
+    -webkit-box-shadow: 0 2px 15px rgb(0 0 0 / 30%);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 30%);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: #fff;
+}
+
+.kcnh-field-settings-wrap .kcnh-field-settings-modal {
+    border-radius: 3px;
+    margin-top: 9px;
+    margin-bottom: 20px;
+}
+
+.kcnh-field-settings-modal::before {
+    content: '';
+    position: absolute;
+    top: -17px;
+    right: 8px;
+    border: 9px solid transparent;
+    border-bottom-color: #fff;
+    pointer-events: none;
+}
+
+.kcnh-fields-wrap {
+    overflow: hidden;
+}
+
+.kcnh-group-tabs {
+    position: relative;
+}
+
+.kcnh-group-tabs .ui-tabs-nav {
+    overflow: visible;
+}
+
+.kcnh-group-tabs .ui-tabs-nav {
+    border: none;
+}
+
+.kcnh-group-tabs .ui-tabs-nav {
+    display: flex;
+    padding: 15px 15px 0 15px;
+}
+
+.kcnh-group-list:after, .kcnh-group-list:before {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+
+.kcnh-group-tabs .ui-tabs-nav .ui-corner-top {
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: background-color 140ms linear;
+}
+
+.kcnh-group-tabs .ui-tabs-nav .ui-corner-top:first-child {
+    border-radius: 3px 0 0 3px;
+}
+
+.kcnh-group-tabs ul.kcnh-group-list .ui-corner-top.ui-state-active {
+    background-color: #0185ba;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.kcnh-group-tabs .ui-tabs-nav .ui-corner-top:last-child {
+    border-radius: 0 3px 3px 0;
+}
+
+.kcnh-group-tabs ul.kcnh-group-list .ui-corner-top:not(:first-child) {
+    border-left-width: 0;
+}
+
+.kcnh-field-settings-wrap .ui-tabs-anchor {
+    float: left;
+    padding: .5em .5em;
+    color: #555d66;
+    text-decoration: none;
+}
+
+.kcnh-group-tabs .ui-tabs-nav .ui-corner-top .ui-tabs-anchor {
+    width: 100%;
+    text-align: center;
+    padding: 2px 4px;
+    padding-left: 0;
+    padding-right: 0;
+    outline: 0;
+}
+
+.kcnh-field-settings-wrap .ui-state-active .ui-tabs-anchor {
+    color: #fff;
+}
+
+.kcnh-tab-content {
+    padding: 15px;
+}
+
+.kcnh-tab-content div.tab-Normal,
+.kcnh-tab-content div.tab-Hover {
+	display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.kcnh-tab-content .wp-picker-container {
+    padding-top: 5px;
+}
+
+.kcnh-adv-toggle-icon:hover{
+	color: #099fd6;
+}
+
+.kcnh_icon_wrapper .icon_normal_desktop:before,
+.kcnh_icon_wrapper .icon_hover_desktop:before{
+    content: "\f547";
+}
+
+.kcnh_icon_wrapper .icon_normal_tablet:before,
+.kcnh_icon_wrapper .icon_hover_tablet:before{
+    content: "\f471";
+}
+
+.kcnh_icon_wrapper .icon_normal_mobile:before,
+.kcnh_icon_wrapper .icon_hover_mobile:before{
+    content: "\f470";
+}
+
+.kcnh_icon_wrapper a{
+    color: inherit;
+}
+
+.kcnh_icon_wrapper {
+    display: flex;
+    align-content: center;
+    padding-bottom: 3px;
+    padding-top: 10px;
+}
+
+.kcnh_icon_wrapper a {
+    color: inherit;
+    background: #00000012;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 22px;
+    margin-right: 7px;
+}
+
+.kcnh_icon_wrapper a.active{
+    color: red;
+}
+
+.kcnh_icon_wrapper a.active {
+    background: #0185ba;
+    color: #fff;
+}
+
+#kcnh-settings-colors-tabs .iris-picker .iris-square {
+    margin-right: 2%;
+}
+
+.kcnh-toggle-desc-wrap label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.kcnh-toggle-desc-wrap label .titledesc_wrapper{
+    padding-right: 10px;
+}
