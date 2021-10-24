@@ -75,6 +75,100 @@ Note: `Defalult value` is required for this to work.
 ## Note ##
 You will need to install the kirki plugin first https://wordpress.org/plugins/kirki/
 
+## Extras ##
+If you want to use `'transport' => 'postMessage'`, you can use this js code to change the css on the previewer without refreshing the page.
+````javascript
+jQuery(document).ready(function(){
+
+    var controls = {
+        'body_background':{  // Your control name
+            'normal' : {
+                'element'  : 'body a', // element to target
+                'property' : 'color'   // CSS property
+            },
+            'hover' : {
+                'element'  : 'body a:hover',
+                'property' : 'color'
+            },
+        },
+        'body_background4':{ // Your control name
+            'normal' : {
+                'element'  : 'body',      // element to target
+                'property' : 'background' // CSS property
+            },
+            'hover' : {
+                'element'  : 'body:hover',
+                'property' : 'background'
+            },
+        },
+    };
+
+    jQuery.each(controls , function(index, control) { 
+
+        wp.customize(
+
+            index, function( value ) {
+
+                value.bind(
+
+                    function( to ) {
+                        var toArray = JSON.parse( decodeURI( to ) );
+                        var style = '<div class="kirki_color_normal_hover_' + index + '">' + "\n";
+                        style += '<style>' + "\n";
+
+                        // For desktop
+                        if( toArray.colors.normal_desktop != undefined ){
+                            style += control.normal.element + '{' + control.normal.property + ':' + toArray.colors.normal_desktop + ' !important}' + "\n";
+                        }
+
+                        if( toArray.colors.hover_desktop != undefined ){
+                            style += control.hover.element + '{' + control.hover.property + ':' + toArray.colors.hover_desktop + ' !important}' + "\n\n";
+                        }
+
+                        // For tablet
+                        style += '@media (min-width: 481px) and (max-width: 1024px){' + "\n";
+
+                        if( toArray.colors.normal_tablet != undefined ){
+                            style += control.normal.element + '{' + control.normal.property + ':' + toArray.colors.normal_tablet + ' !important}' + "\n";
+                        }
+
+                        if( toArray.colors.hover_tablet != undefined ){
+                            style += control.hover.element + '{' + control.hover.property + ':' + toArray.colors.hover_tablet + ' !important}' + "\n";
+                        }
+                        
+                        style += '}' + "\n\n";
+
+                        // For mobile
+                        style += '@media (min-width: 320px) and (max-width: 480px){' + "\n";
+
+                        if( toArray.colors.normal_mobile != undefined ){
+                            style += control.normal.element + '{' + control.normal.property + ':' + toArray.colors.normal_mobile + ' !important}' + "\n";
+                        }
+
+                        if( toArray.colors.hover_mobile != undefined ){
+                            style += control.hover.element + '{' + control.hover.property + ':' + toArray.colors.hover_mobile + ' !important}' + "\n";
+                        }
+
+                        style += '}' + "\n";
+
+                        style += '</style>' + "\n";
+                        style += '</div>';
+
+                        jQuery('.kirki_color_normal_hover_'+index).remove();
+                        jQuery('body').append( style );
+                    }
+
+                );
+                
+            }
+
+        );
+
+    });
+
+});
+````
+
 ## Changelog ##
 
 = 0.2 =
