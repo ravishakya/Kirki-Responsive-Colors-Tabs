@@ -76,7 +76,7 @@ Note: `Defalult value` is required for this to work.
 You will need to install the kirki plugin first https://wordpress.org/plugins/kirki/
 
 ## Extras ##
-If you want to use `'transport' => 'postMessage'`, you can use this js code to change the css on the previewer without refreshing the page.
+If you want to use `'transport' => 'postMessage'`, you can use this js and php code to change the css on the previewer without refreshing the page.
 ````javascript
 jQuery(document).ready(function(){
 
@@ -167,6 +167,71 @@ jQuery(document).ready(function(){
     });
 
 });
+````
+
+````php
+add_action( 'wp_head', 'my_custom_styles' );
+function my_custom_styles(){
+
+	$controls = [
+        'body_background' => [  // Your control name
+            'normal' => [
+                'element'  => 'body a', // element to target
+                'property' => 'color'   // CSS property
+            ],
+            'hover' => [
+                'element'  => 'body a:hover',
+                'property' => 'color'
+            ],
+        ],
+        'body_background4' => [ // Your control name
+            'normal' => [
+                'element'  => 'body',      // element to target
+                'property' => 'background' // CSS property
+            ],
+            'hover' => [
+                'element'  => 'body:hover',
+                'property' => 'background'
+            ],
+        ],
+    ];
+
+    $css = '';
+    echo "\n<style>";
+    foreach ($controls as $key => $value) {    	
+    	$db_colors = get_theme_mod( $key );
+    	$db_colors = json_decode( $db_colors , true );
+
+    	if( !empty( $db_colors['colors']['normal_desktop'] ) ){
+    		$css .= $value['normal']['element'] . '{' . $value['normal']['property']  . ':' . $db_colors['colors']['normal_desktop'] . '}';
+    	}
+    	if( !empty( $db_colors['colors']['hover_desktop'] ) ){
+    		$css .= $value['hover']['element'] . '{' . $value['hover']['property']  . ':' . $db_colors['colors']['hover_desktop'] . '}';
+    	}
+    	if( !empty( $db_colors['colors']['normal_tablet'] ) ){
+    		$css .= '@media (min-width: 481px) and (max-width: 1024px){';
+    		$css .= $value['normal']['element'] . '{' . $value['normal']['property']  . ':' . $db_colors['colors']['normal_tablet'] . '}';
+    		$css .= '}';
+    	}
+    	if( !empty( $db_colors['colors']['hover_tablet'] ) ){
+    		$css .= '@media (min-width: 481px) and (max-width: 1024px){';
+    		$css .= $value['hover']['element'] . '{' . $value['hover']['property']  . ':' . $db_colors['colors']['hover_tablet'] . '}';
+    		$css .= '}';
+    	}
+    	if( !empty( $db_colors['colors']['normal_mobile'] ) ){
+    		$css .= '@media (min-width: 320px) and (max-width: 480px){';
+    		$css .= $value['normal']['element'] . '{' . $value['normal']['property']  . ':' . $db_colors['colors']['normal_mobile'] . '}';
+    		$css .= '}';
+    	}
+    	if( !empty( $db_colors['colors']['hover_mobile'] ) ){
+    		$css .= '@media (min-width: 320px) and (max-width: 480px){';
+    		$css .= $value['hover']['element'] . '{' . $value['hover']['property']  . ':' . $db_colors['colors']['hover_mobile'] . '}';
+    		$css .= '}';
+    	}
+    }
+    echo esc_attr( $css );
+    echo "</style>\n";
+}
 ````
 
 ## Changelog ##
