@@ -4,7 +4,7 @@
 **Author URI:** https://bizbergthemes.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 0.2
+**Version:** 0.3
 
 ## Description ##
 
@@ -235,6 +235,9 @@ function my_custom_styles(){
 ````
 
 ## Changelog ##
+
+= 0.3 =
+- Added alpha control
 
 = 0.2 =
 - Fixed CSS
