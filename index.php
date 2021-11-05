@@ -3,7 +3,7 @@
 /**
 * Plugin Name: Kirki Responsive Colors Tabs ( Normal / Hover )
 * Author: Ravi Shakya
-* Version: 0.2
+* Version: 0.3
 * Requires WP:   4.9
 * Requires PHP:  5.3
 * Description: By using this control, you can select different colors for different devices ( Laptop / Tablet / Mobile ).
@@ -15,15 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'init' , function(){
-
 	add_filter( 'kirki_control_types', function ( $controls ) {
-
 			$controls['color-normal-hover'] = 'KIRKI_COLOR_NORMAL_HOVER';
 			return $controls;
-
 		}
-	);
-	
+	);	
 });
 
 add_action( 'customize_register', 'kirki_color_normal_hover_customize_register' );
@@ -121,6 +117,7 @@ function kirki_color_normal_hover_customize_register(){
 												<label class="customize-control-title"><?php echo esc_html( $this->label ) . ' Color'; ?></label>
 												<input 
 												type="text" 
+												data-alpha="true" 
 												value="<?php echo kcnh_get_default_values( $colors, 'normal_'.$device ); ?>" 
 												class="tab-normal-color-<?php echo (esc_attr($this->id) . '-' . esc_attr( $device )); ?>" 
 												data-default-color="<?php echo kcnh_get_default_values( $colors, 'normal_'.$device ); ?>" />
@@ -133,6 +130,7 @@ function kirki_color_normal_hover_customize_register(){
 												<label class="customize-control-title"><?php echo esc_html( $this->label ) . ' Color'; ?></label>
 												<input 
 												type="text" 
+												data-alpha="true" 
 												value="<?php echo kcnh_get_default_values( $colors, 'hover_'.$device ); ?>" 
 												class="tab-hover-color-<?php echo (esc_attr($this->id) . '-' . esc_attr( $device )); ?>" 
 												data-default-color="<?php echo kcnh_get_default_values( $colors, 'hover_'.$device ); ?>" />
@@ -195,10 +193,8 @@ function kirki_color_normal_hover_customize_register(){
 }
 
 function kcnh_get_default_values( $colors, $key ){
-
 	if( empty( $colors[$key] ) ){
 		return '';
 	}
 	return esc_attr( $colors[$key] ); 
-
 }
